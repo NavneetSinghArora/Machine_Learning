@@ -1,5 +1,6 @@
 # Importing Libraries to carry out the Operations
 import numpy
+import matplotlib.pyplot as plt
 # Importing features from the Libraries to carry out the Operations
 from numpy import loadtxt
 
@@ -28,28 +29,27 @@ class LinearRegression:
         # Defining Theta
         self.theta = numpy.zeros([2, 1])
 
-    # This Cost Function is calculated using Batch Gradient Algorithm
-    def cost_function(self):
         # Creating a vector array of ones and adding this array as first column
         # of Input Features. This is done because in equation Theta(0)X(0), X(0) = 1
         ones = numpy.ones(self.m)[:, numpy.newaxis]
         self.x = numpy.hstack((ones, self.x))
 
+    def reinitialize(self):
+        self.theta = numpy.zeros([2, 1])
+
+    # This Cost Function is calculated using Batch Gradient Algorithm
+    def cost_function(self):
+        self.reinitialize()
         # Now, calculating the hypothesis as Least Squared Method
         hypothesis = numpy.dot(self.x, self.theta)
         squared_error = numpy.square(hypothesis - self.y)
 
         # Calculating the Cost Function
         cost = (1/(2 * self.m)) * numpy.sum(squared_error)
-        print(cost)
 
     # This Cost Function is calculated using Batch Gradient Algorithm and Learning rate
     def cost_function_with_learning_rate(self):
-        # Creating a vector array of ones and adding this array as first column
-        # of Input Features. This is done because in equation Theta(0)X(0), X(0) = 1
-        ones = numpy.ones(self.m)[:, numpy.newaxis]
-        self.x = numpy.hstack((ones, self.x))
-
+        self.reinitialize()
         for i in range(0, self.iterations):
             hypothesis = numpy.dot(self.x, self.theta)
             error = hypothesis - self.y
@@ -58,9 +58,9 @@ class LinearRegression:
             # Calculating Theta on every iteration based on Learning Rate
             self.theta = self.theta - (self.alpha/self.m) * numpy.dot(numpy.transpose(self.x), error)
             cost = (1/(2 * self.m)) * numpy.sum(squared_error)
-            print(cost)
 
 
 if __name__ == '__main__':
     linearRegression = LinearRegression()
+    linearRegression.cost_function()
     linearRegression.cost_function_with_learning_rate()
