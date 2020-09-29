@@ -15,6 +15,10 @@ class LinearRegression:
         self.x = data[:, [0]]
         self.y = data[:, [1]]
 
+        # Defining the Learning Rate and Total Iterations
+        self.alpha = 0.01
+        self.iterations = 1500
+
         # Defining the length of Training Set
         # Length of Input features should be equal to the Prediction/Output Data, else Raise Error
         if len(self.x) != len(self.y):
@@ -30,16 +34,18 @@ class LinearRegression:
         ones = numpy.ones(self.m)[:, numpy.newaxis]
         self.x = numpy.hstack((ones, self.x))
 
-    # This Cost Function is calculated using Batch Gradient Algorithm
-    def cost_function(self):
-        # Now, calculating the hypothesis as Least Squared Method
-        hypothesis = numpy.dot(self.x, self.theta)
-        squared_error = numpy.square(hypothesis - self.y)
+    # This Cost Function is calculated using Batch Gradient Algorithm and Learning rate
+    def cost_function_with_learning_rate(self):
+        for i in range(0, self.iterations):
+            hypothesis = numpy.dot(self.x, self.theta)
+            error = hypothesis - self.y
+            squared_error = numpy.square(hypothesis - self.y)
 
-        # Calculating the Cost Function
-        cost = (1/(2 * self.m)) * numpy.sum(squared_error)
+            # Calculating Theta on every iteration based on Learning Rate
+            self.theta = self.theta - (self.alpha/self.m) * numpy.dot(numpy.transpose(self.x), error)
+            cost = (1/(2 * self.m)) * numpy.sum(squared_error)
 
 
 if __name__ == '__main__':
     linearRegression = LinearRegression()
-    linearRegression.cost_function()
+    linearRegression.cost_function_with_learning_rate()
