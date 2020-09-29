@@ -43,7 +43,7 @@ class LinearRegression:
         cost = (1/(2 * self.m)) * numpy.sum(squared_error)
         print(cost)
 
-    # This Cost Function is calculated using Batch Gradient Algorithm
+    # This Cost Function is calculated using Batch Gradient Algorithm and Learning rate
     def cost_function_with_learning_rate(self):
         # Creating a vector array of ones and adding this array as first column
         # of Input Features. This is done because in equation Theta(0)X(0), X(0) = 1
