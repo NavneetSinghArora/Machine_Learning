@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 from numpy import loadtxt
 ```
 
-# Code Initialization and Data Loading
+## Code Initialization and Data Loading
 
 ```python
 def __init__(self):
