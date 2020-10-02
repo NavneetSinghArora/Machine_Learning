@@ -81,7 +81,7 @@ class LinearRegression:
             squared_error = numpy.square(hypothesis - yy)
 
             # Calculating Theta on for Single Data Set
-            self.theta = self.theta - ((self.alpha * error * xx).reshape(-1,1))
+            self.theta = self.theta - ((self.alpha * error * xx).reshape(-1, 1))
             cost = (1 / (2 * self.m)) * numpy.sum(squared_error)
 
         plt.plot(self.xxx, numpy.dot(self.x, self.theta), 'g', label='stochastic')
