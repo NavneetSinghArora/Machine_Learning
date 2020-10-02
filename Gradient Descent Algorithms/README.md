@@ -94,8 +94,7 @@ def stochastic_cost_function(self):
         cost = (1 / (2 * self.m)) * numpy.sum(squared_error)
 ``` 
 ### Graph Plot for the Algorithms
-![Prediction Comparison]
-(https://github.com/NavneetSinghArora/Machine_Learning/blob/master/images/Gradient%20Descent%20Comparison.png)
+![Prediction Comparison](../images/Gradient Descent Comparison.png)
 
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
