@@ -95,5 +95,6 @@ def stochastic_cost_function(self):
 ``` 
 ### Graph Plot for the Algorithms
 ![Prediction Comparison](https://github.com/NavneetSinghArora/Machine_Learning/blob/master/images/Gradient%20Descent%20Comparison.png)
+![Stochastic Gradient Descent - Different Learning Rate](https://github.com/NavneetSinghArora/Machine_Learning/blob/master/images/Stochastic%20Gradient%20Descent%20with%20Different%20Learning%20Rate.png)
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
