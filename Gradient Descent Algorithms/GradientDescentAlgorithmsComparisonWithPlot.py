@@ -9,7 +9,7 @@ class LinearRegression:
     def __init__(self):
         # Training Examples File To be Loaded from a CSV/TXT file
         # Put Data Set Path
-        data_path = r"/Data Sets/Housing_Problem_Basic_data_Set.txt"
+        data_path = r"/Users/***/Data Sets/Housing_Problem_Basic_data_Set.txt"
         data_file = open(data_path, 'r')
         data = loadtxt(data_file, delimiter=',')
         self.x = data[:, [0]]
@@ -53,7 +53,7 @@ class LinearRegression:
         print(self.theta)
         plt.figure()
         plt.scatter(self.xxx, self.yyy)
-        plt.plot(self.xxx, numpy.dot(self.x, self.theta), 'b', label='batch')
+        plt.plot(self.xxx, numpy.dot(self.x, self.theta), 'b', label='Batch')
 
     # This Cost Function is calculated using Batch Gradient Algorithm and Learning rate
     def cost_function_with_learning_rate(self):
@@ -69,7 +69,7 @@ class LinearRegression:
 
         # print(cost)
         # print(self.theta)
-        plt.plot(self.xxx, numpy.dot(self.x, self.theta), 'r', label='batch Learning')
+        plt.plot(self.xxx, numpy.dot(self.x, self.theta), 'r', label='Batch - Learning')
 
     # This Cost Function is calculated using Stochastic Gradient Descent Algorithm and Learning rate
     def stochastic_cost_function(self):
@@ -84,7 +84,7 @@ class LinearRegression:
             self.theta = self.theta - ((self.alpha * error * xx).reshape(-1, 1))
             cost = (1 / (2 * self.m)) * numpy.sum(squared_error)
 
-        plt.plot(self.xxx, numpy.dot(self.x, self.theta), 'g', label='stochastic')
+        plt.plot(self.xxx, numpy.dot(self.x, self.theta), 'g', label='Stochastic')
         plt.legend()
         plt.show()
 
